@@ -42,13 +42,27 @@ g:nv_light = 'sage'
 
 ## Contrast
 
+Contrast changes the brightness of the background, the brightness of text, and the difference in brightness between syntax (for instance, comments are darker than other syntax highlights in dark mode, or brighter in light mode). Set contrast by specifying one of the three options,
+
+``` 
+" Legacy vimscript:
+let g:nv_contrast = "soft"
+```
+
+```
+# Vim9script:
+g:nv_contrast = "soft"
+```
+
 ## Other Features
+
+Enter ```:echo g:nv_colors``` in Vim to view the hex values of the current nightvision configuration.
 
 ## Installation
 
 Nightvision can be installed with any of the usual package managers.
 
-## Pathogen
+### Pathogen
 
 Clone into the directory where you keep your plugins. For example, 
 
@@ -56,25 +70,25 @@ Clone into the directory where you keep your plugins. For example,
 cd ~/.vim/bundle/ && git clone https://github.com/mathofprimes/nightvision-vim.git
 ```
 
-## Vim-Plug
+### Vim-Plug
 
 Add
 
 ```
-Plug "mathofprimes/nightvision-vim"
+Plug 'mathofprimes/nightvision-vim'
 ``` 
 
-to you're .vimrc file and run ```:PlugInstall``` in Vim.
+to you're .vimrc file and run ```:PlugInstall```.
 
-## Vundle 
+### Vundle
 
 Add 
 
 ```
-Plugin "mathofprimes/nightvision-vim"
+Plugin 'mathofprimes/nightvision-vim'
 ``` 
 
-to you're .vimrc file and run ```:PluginInstall``` in Vim.
+to you're .vimrc file and run ```:PluginInstall```.
 
 ## Other Text Editors
 
