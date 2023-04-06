@@ -12,55 +12,56 @@ if has("termguicolors")
     set termguicolors
 endif
 
-g:colors_name = "nightvision"
-
 var config = nightvision.Config()
 var nv = nightvision.Generator(config.nv_dark, config.nv_light, config.nv_contrast)
 
 g:nv_colors = nv
+g:colors_name = "nightvision"
 
-nightvision.Highlight("Comment", nv.itlc, nv.gray, nv.none, nv.none)
+# Syntax groups. See :h group-name.
 
-nightvision.Highlight("Constant", nv.none, nv.jade, nv.none, nv.none)
-nightvision.Highlight("String", nv.none, nv.jade, nv.none, nv.none)
+nightvision.Highlight("Comment", "italic", nv.gray, nv.none, nv.none)
+
+nightvision.Highlight("Constant",  nv.none, nv.jade, nv.none, nv.none)
+nightvision.Highlight("String",    nv.none, nv.jade, nv.none, nv.none)
 nightvision.Highlight("Character", nv.none, nv.jade, nv.none, nv.none)
-nightvision.Highlight("Number", nv.none, nv.jade, nv.none, nv.none)
-nightvision.Highlight("Boolean", nv.none, nv.jade, nv.none, nv.none)
-nightvision.Highlight("Float", nv.none, nv.jade, nv.none, nv.none)
+nightvision.Highlight("Number",    nv.none, nv.jade, nv.none, nv.none)
+nightvision.Highlight("Boolean",   nv.none, nv.jade, nv.none, nv.none)
+nightvision.Highlight("Float",     nv.none, nv.jade, nv.none, nv.none)
 
 nightvision.Highlight("Identifier", nv.none, nv.pure, nv.none, nv.none)
-nightvision.Highlight("Function", nv.itlc, nv.lime, nv.none, nv.none)
+nightvision.Highlight("Function",   "italic", nv.lime, nv.none, nv.none)
 
-nightvision.Highlight("Statement", nv.none, nv.pear, nv.none, nv.none)
+nightvision.Highlight("Statement",   nv.none, nv.pear, nv.none, nv.none)
 nightvision.Highlight("Conditional", nv.none, nv.pear, nv.none, nv.none)
-nightvision.Highlight("Repeat", nv.none, nv.pear, nv.none, nv.none)
-nightvision.Highlight("Label", nv.none, nv.pear, nv.none, nv.none)
-nightvision.Highlight("Operator", nv.none, nv.pear, nv.none, nv.none)
-nightvision.Highlight("Keyword", nv.none, nv.pear, nv.none, nv.none)
-nightvision.Highlight("Exception", nv.none, nv.pear, nv.none, nv.none)
+nightvision.Highlight("Repeat",      nv.none, nv.pear, nv.none, nv.none)
+nightvision.Highlight("Label",       nv.none, nv.pear, nv.none, nv.none)
+nightvision.Highlight("Operator",    nv.none, nv.pear, nv.none, nv.none)
+nightvision.Highlight("Keyword",     nv.none, nv.pear, nv.none, nv.none)
+nightvision.Highlight("Exception",   nv.none, nv.pear, nv.none, nv.none)
 
-nightvision.Highlight("PreProc", nv.none, nv.drab, nv.none, nv.none)
-nightvision.Highlight("Include", nv.none, nv.drab, nv.none, nv.none)
-nightvision.Highlight("Define", nv.none, nv.drab, nv.none, nv.none)
-nightvision.Highlight("Macro", nv.none, nv.drab, nv.none, nv.none)
+nightvision.Highlight("PreProc",   nv.none, nv.drab, nv.none, nv.none)
+nightvision.Highlight("Include",   nv.none, nv.drab, nv.none, nv.none)
+nightvision.Highlight("Define",    nv.none, nv.drab, nv.none, nv.none)
+nightvision.Highlight("Macro",     nv.none, nv.drab, nv.none, nv.none)
 nightvision.Highlight("PreCondit", nv.none, nv.drab, nv.none, nv.none)
 
-nightvision.Highlight("Type", nv.none, nv.aqua, nv.none, nv.none)
+nightvision.Highlight("Type",         nv.none, nv.aqua, nv.none, nv.none)
 nightvision.Highlight("StorageClass", nv.none, nv.aqua, nv.none, nv.none)
-nightvision.Highlight("Structure", nv.none, nv.aqua, nv.none, nv.none)
-nightvision.Highlight("Typedef", nv.none, nv.aqua, nv.none, nv.none)
+nightvision.Highlight("Structure",    nv.none, nv.aqua, nv.none, nv.none)
+nightvision.Highlight("Typedef",      nv.none, nv.aqua, nv.none, nv.none)
 
-nightvision.Highlight("Special", nv.none, nv.sage, nv.none, nv.none)
-nightvision.Highlight("SpecialChar", nv.none, nv.sage, nv.none, nv.none)
-nightvision.Highlight("Tag", nv.none, nv.sage, nv.none, nv.none)
-nightvision.Highlight("Deliminator", nv.none, nv.sage, nv.none, nv.none)
+nightvision.Highlight("Special",        nv.none, nv.sage, nv.none, nv.none)
+nightvision.Highlight("SpecialChar",    nv.none, nv.sage, nv.none, nv.none)
+nightvision.Highlight("Tag",            nv.none, nv.sage, nv.none, nv.none)
+nightvision.Highlight("Deliminator",    nv.none, nv.sage, nv.none, nv.none)
 nightvision.Highlight("SpecialComment", nv.none, nv.sage, nv.none, nv.none)
-nightvision.Highlight("Debug", nv.none, nv.sage, nv.none, nv.none)
+nightvision.Highlight("Debug",          nv.none, nv.sage, nv.none, nv.none)
 
 nightvision.Highlight("Underlined", nv.none, nv.teal, nv.none, nv.none)
-nightvision.Highlight("Ignore", nv.none, nv.teal, nv.none, nv.none)
-nightvision.Highlight("Error", nv.none, nv.teal, nv.none, nv.none)
-nightvision.Highlight("Todo", nv.none, nv.teal, nv.none, nv.none)
+nightvision.Highlight("Ignore",     nv.none, nv.teal, nv.none, nv.none)
+nightvision.Highlight("Error",      nv.none, nv.teal, nv.none, nv.none)
+nightvision.Highlight("Todo",       nv.none, nv.teal, nv.none, nv.none)
 
 # HIGHLIGHTING GROUPS (see :h hi-groups):
 
