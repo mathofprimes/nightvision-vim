@@ -103,7 +103,7 @@ export def Generator(dark: string, light: string, contrast: string): dict<string
     return palette
 enddef
 
-export def Highlight(group: string, gui: string, fg: string, bg: string, sp: string): void
+export def HL(group: string, gui: string, fg: string, bg: string, sp: string): void
     exec "hi " .. group 
                .. " term=NONE"
                .. " cterm=" .. gui
