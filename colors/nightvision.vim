@@ -1,6 +1,7 @@
 vim9script
 
-import autoload "nightvision.vim"
+# Import autoload
+import autoload "nightvision.vim" as nv
 
 hi clear
 
@@ -12,134 +13,138 @@ if has("termguicolors")
     set termguicolors
 endif
 
-var config = nightvision.Config()
-var nv = nightvision.Generator(config.nv_dark, config.nv_light, config.nv_contrast)
+var config = nv.Config()
+var c = nv.Generator(
+    config.nv_dark,
+    config.nv_light,
+    config.nv_contrast
+)
 
-g:nv_colors = nv
+g:nv_colors = c
 g:colors_name = "nightvision"
 
 # Syntax groups. See :h group-name.
 
-nightvision.HL("Comment", "italic", nv.gray, nv.none, nv.none)
+nv.HL("Comment", "italic", c.gray, c.none, c.none)
 
-nightvision.HL("Constant",  nv.none, nv.jade, nv.none, nv.none)
-nightvision.HL("String",    nv.none, nv.jade, nv.none, nv.none)
-nightvision.HL("Character", nv.none, nv.jade, nv.none, nv.none)
-nightvision.HL("Number",    nv.none, nv.jade, nv.none, nv.none)
-nightvision.HL("Boolean",   nv.none, nv.jade, nv.none, nv.none)
-nightvision.HL("Float",     nv.none, nv.jade, nv.none, nv.none)
+nv.HL("Constant",  c.none, c.jade, c.none, c.none)
+nv.HL("String",    c.none, c.jade, c.none, c.none)
+nv.HL("Character", c.none, c.jade, c.none, c.none)
+nv.HL("Number",    c.none, c.jade, c.none, c.none)
+nv.HL("Boolean",   c.none, c.jade, c.none, c.none)
+nv.HL("Float",     c.none, c.jade, c.none, c.none)
 
-nightvision.HL("Identifier", nv.none, nv.pure, nv.none, nv.none)
-nightvision.HL("Function",   "italic", nv.lime, nv.none, nv.none)
+nv.HL("Identifier", c.none, c.pure, c.none, c.none)
+nv.HL("Function",   "italic", c.lime, c.none, c.none)
 
-nightvision.HL("Statement",   nv.none, nv.pear, nv.none, nv.none)
-nightvision.HL("Conditional", nv.none, nv.pear, nv.none, nv.none)
-nightvision.HL("Repeat",      nv.none, nv.pear, nv.none, nv.none)
-nightvision.HL("Label",       nv.none, nv.pear, nv.none, nv.none)
-nightvision.HL("Operator",    nv.none, nv.pear, nv.none, nv.none)
-nightvision.HL("Keyword",     nv.none, nv.pear, nv.none, nv.none)
-nightvision.HL("Exception",   nv.none, nv.pear, nv.none, nv.none)
+nv.HL("Statement",   c.none, c.pear, c.none, c.none)
+nv.HL("Conditional", c.none, c.pear, c.none, c.none)
+nv.HL("Repeat",      c.none, c.pear, c.none, c.none)
+nv.HL("Label",       c.none, c.pear, c.none, c.none)
+nv.HL("Operator",    c.none, c.pear, c.none, c.none)
+nv.HL("Keyword",     c.none, c.pear, c.none, c.none)
+nv.HL("Exception",   c.none, c.pear, c.none, c.none)
 
-nightvision.HL("PreProc",   nv.none, nv.drab, nv.none, nv.none)
-nightvision.HL("Include",   nv.none, nv.drab, nv.none, nv.none)
-nightvision.HL("Define",    nv.none, nv.drab, nv.none, nv.none)
-nightvision.HL("Macro",     nv.none, nv.drab, nv.none, nv.none)
-nightvision.HL("PreCondit", nv.none, nv.drab, nv.none, nv.none)
+nv.HL("PreProc",   c.none, c.drab, c.none, c.none)
+nv.HL("Include",   c.none, c.drab, c.none, c.none)
+nv.HL("Define",    c.none, c.drab, c.none, c.none)
+nv.HL("Macro",     c.none, c.drab, c.none, c.none)
+nv.HL("PreCondit", c.none, c.drab, c.none, c.none)
 
-nightvision.HL("Type",         nv.none, nv.aqua, nv.none, nv.none)
-nightvision.HL("StorageClass", nv.none, nv.aqua, nv.none, nv.none)
-nightvision.HL("Structure",    nv.none, nv.aqua, nv.none, nv.none)
-nightvision.HL("Typedef",      nv.none, nv.aqua, nv.none, nv.none)
+nv.HL("Type",         c.none, c.aqua, c.none, c.none)
+nv.HL("StorageClass", c.none, c.aqua, c.none, c.none)
+nv.HL("Structure",    c.none, c.aqua, c.none, c.none)
+nv.HL("Typedef",      c.none, c.aqua, c.none, c.none)
 
-nightvision.HL("Special",        nv.none, nv.sage, nv.none, nv.none)
-nightvision.HL("SpecialChar",    nv.none, nv.sage, nv.none, nv.none)
-nightvision.HL("Tag",            nv.none, nv.sage, nv.none, nv.none)
-nightvision.HL("Deliminator",    nv.none, nv.sage, nv.none, nv.none)
-nightvision.HL("SpecialComment", nv.none, nv.sage, nv.none, nv.none)
-nightvision.HL("Debug",          nv.none, nv.sage, nv.none, nv.none)
+nv.HL("Special",        c.none, c.sage, c.none, c.none)
+nv.HL("SpecialChar",    c.none, c.sage, c.none, c.none)
+nv.HL("Tag",            c.none, c.sage, c.none, c.none)
+nv.HL("Deliminator",    c.none, c.sage, c.none, c.none)
+nv.HL("SpecialComment", c.none, c.sage, c.none, c.none)
+nv.HL("Debug",          c.none, c.sage, c.none, c.none)
 
-nightvision.HL("Underlined", nv.none, nv.teal, nv.none, nv.none)
-nightvision.HL("Ignore",     nv.none, nv.teal, nv.none, nv.none)
-nightvision.HL("Error",      nv.none, nv.teal, nv.none, nv.none)
-nightvision.HL("Todo",       nv.none, nv.teal, nv.none, nv.none)
+nv.HL("Underlined", c.none, c.teal, c.none, c.none)
+nv.HL("Ignore",     c.none, c.teal, c.none, c.none)
+nv.HL("Error",      c.none, c.teal, c.none, c.none)
+nv.HL("Todo",       c.none, c.teal, c.none, c.none)
 
 # HIGHLIGHTING GROUPS (see :h hi-groups):
 
 # Modes.
-nightvision.HL("Normal",    nv.none, nv.fg0,  nv.bg0, nv.none)
-nightvision.HL("Terminal",  nv.none, nv.fg0,  nv.bg0, nv.none)
-nightvision.HL("Visual",    nv.none, nv.none, nv.bg2, nv.none)
-nightvision.HL("VisualNos", nv.none, nv.none, nv.bg2, nv.none)
+nv.HL("Normal",    c.none, c.fg0,  c.bg0, c.none)
+nv.HL("Terminal",  c.none, c.fg0,  c.bg0, c.none)
+nv.HL("Visual",    c.none, c.none, c.bg2, c.none)
+nv.HL("VisualNos", c.none, c.none, c.bg2, c.none)
 
 # Cursors.
-nightvision.HL("Cursor",         "reverse", nv.none, nv.none, nv.none)
-nightvision.HL("lCursor",        "reverse", nv.none, nv.none, nv.none)
-nightvision.HL("CursorIM",       "reverse", nv.none, nv.none, nv.none)
-nightvision.HL("CursorColumn",   nv.none,   nv.none, nv.bg1,  nv.none)
-nightvision.HL("CursorLine",     nv.none,   nv.none, nv.bg1,  nv.none)
-nightvision.HL("CursorLineFold", nv.none,   nv.fg0,  nv.bg0,  nv.none)
-nightvision.HL("CursorLineNr",   nv.none,   nv.lime, nv.bg1,  nv.none)
-nightvision.HL("CursorLineSign", nv.none,   nv.fg0,  nv.bg0,  nv.none)
+nv.HL("Cursor",         "reverse", c.none, c.none, c.none)
+nv.HL("lCursor",        "reverse", c.none, c.none, c.none)
+nv.HL("CursorIM",       "reverse", c.none, c.none, c.none)
+nv.HL("CursorColumn",   c.none,   c.none, c.bg1,  c.none)
+nv.HL("CursorLine",     c.none,   c.none, c.bg1,  c.none)
+nv.HL("CursorLineFold", c.none,   c.fg0,  c.bg0,  c.none)
+nv.HL("CursorLineNr",   c.none,   c.lime, c.bg1,  c.none)
+nv.HL("CursorLineSign", c.none,   c.fg0,  c.bg0,  c.none)
 
 # Columns, lines.
-nightvision.HL("ColorColumn", nv.none, nv.none, nv.bg1, nv.none)
-nightvision.HL("EndOfBuffer", nv.none, nv.fg0, nv.bg0, nv.none)
-nightvision.HL("LineNr",      nv.bold, nv.fg3, nv.bg1, nv.none)
-nightvision.HL("LineNrAbove", nv.none, nv.gray, nv.none, nv.none)
-nightvision.HL("LineNrBelow", nv.none, nv.gray, nv.none, nv.none)
-nightvision.HL("SignColumn",  nv.none, nv.fg0, nv.none, nv.none)
-nightvision.HL("VertSplit",   nv.none, nv.fg0, nv.bg3, nv.none) 
+nv.HL("ColorColumn", c.none, c.none, c.bg1,  c.none)
+nv.HL("EndOfBuffer", c.none, c.fg0,  c.bg0,  c.none)
+nv.HL("LineNr",      c.bold, c.fg3,  c.bg1,  c.none)
+nv.HL("LineNrAbove", c.none, c.gray, c.none, c.none)
+nv.HL("LineNrBelow", c.none, c.gray, c.none, c.none)
+nv.HL("SignColumn",  c.none, c.fg0,  c.none, c.none)
+nv.HL("VertSplit",   c.none, c.fg0,  c.bg3,  c.none) 
 
 # Messages.
-nightvision.HL("ErrorMsg",   nv.bold, nv.teal, nv.none, nv.none)
-nightvision.HL("ModeMsg",    nv.bold, nv.lime, nv.none, nv.none)
-nightvision.HL("MoreMsg",    nv.bold, nv.lime, nv.none, nv.none) 
-nightvision.HL("WarningMsg", nv.bold, nv.pear, nv.none, nv.none)
+nv.HL("ErrorMsg",   c.bold, c.teal, c.none, c.none)
+nv.HL("ModeMsg",    c.bold, c.lime, c.none, c.none)
+nv.HL("MoreMsg",    c.bold, c.lime, c.none, c.none) 
+nv.HL("WarningMsg", c.bold, c.pear, c.none, c.none)
 
 # Popup menu.
-nightvision.HL("Pmenu",      nv.none, nv.none, nv.bg3, nv.none)
-nightvision.HL("PmenuSbar",  nv.none, nv.fg0, nv.none, nv.none)
-nightvision.HL("PmenuSel",   nv.none, nv.bg0, nv.fg0, nv.none)
-nightvision.HL("PmenuThumb", nv.none, nv.fg0, nv.none, nv.none)
+nv.HL("Pmenu",      c.none, c.none, c.bg3,  c.none)
+nv.HL("PmenuSbar",  c.none, c.fg0,  c.none, c.none)
+nv.HL("PmenuSel",   c.none, c.bg0,  c.fg0,  c.none)
+nv.HL("PmenuThumb", c.none, c.fg0,  c.none, c.none)
 
 # Search.
-nightvision.HL("IncSearch",  nv.none, nv.bg0, nv.pear, nv.none)
-nightvision.HL("MatchParen", nv.bold, nv.fg3, nv.none, nv.none)
-nightvision.HL("Search",     nv.none, nv.bg0, nv.teal, nv.none)
-nightvision.HL("WildMenu",   nv.none, nv.bg0, nv.pear, nv.none)
+nv.HL("IncSearch",  c.none, c.bg0, c.pear, c.none)
+nv.HL("MatchParen", c.bold, c.fg3, c.none, c.none)
+nv.HL("Search",     c.none, c.bg0, c.teal, c.none)
+nv.HL("WildMenu",   c.none, c.bg0, c.pear, c.none)
 
 # Folds.
-nightvision.HL("Folded",     nv.none, nv.gray, nv.bg3, nv.none)
-nightvision.HL("FoldColumn", nv.bold, nv.fg0, nv.bg3, nv.none)
+nv.HL("Folded",     c.none, c.gray, c.bg3, c.none)
+nv.HL("FoldColumn", c.bold, c.fg0,  c.bg3, c.none)
 
 # Diffs.
-nightvision.HL("DiffAdd", nv.bold, nv.lime, nv.bg2, nv.none)
-nightvision.HL("DiffChange", nv.bold, nv.pear, nv.bg2, nv.none)
-nightvision.HL("DiffDelete", nv.bold, nv.drab, nv.bg2, nv.none)
-nightvision.HL("DiffText", nv.bold, nv.fg0, nv.bg2, nv.none) 
+nv.HL("DiffAdd",    c.bold, c.lime, c.bg2, c.none)
+nv.HL("DiffChange", c.bold, c.pear, c.bg2, c.none)
+nv.HL("DiffDelete", c.bold, c.drab, c.bg2, c.none)
+nv.HL("DiffText",   c.bold, c.fg0,  c.bg2, c.none) 
 
 # Spellcheckers.
-nightvision.HL("SpellBad", nv.undl, nv.none, nv.none, nv.teal)
-nightvision.HL("SpellCap", nv.undl, nv.none, nv.none, nv.lime)
-nightvision.HL("SpellLocal", nv.undl, nv.none, nv.none, nv.pear)
-nightvision.HL("SpellRare", nv.undl, nv.none, nv.none, nv.jade)
+nv.HL("SpellBad",   c.undl, c.none, c.none, c.teal)
+nv.HL("SpellCap",   c.undl, c.none, c.none, c.lime)
+nv.HL("SpellLocal", c.undl, c.none, c.none, c.pear)
+nv.HL("SpellRare",  c.undl, c.none, c.none, c.jade)
 
 # Statuslines.
-nightvision.HL("StatusLine", nv.none, nv.fg1, nv.bg3, nv.none)
-nightvision.HL("StatusLineNC", nv.none, nv.fg3, nv.bg2, nv.none)
-nightvision.HL("StatusLineTerm", nv.none, nv.fg1, nv.bg3, nv.none)
-nightvision.HL("StatusLineTermNC", nv.none, nv.fg3, nv.bg2, nv.none)
+nv.HL("StatusLine",       c.none, c.fg1, c.bg3, c.none)
+nv.HL("StatusLineNC",     c.none, c.fg3, c.bg2, c.none)
+nv.HL("StatusLineTerm",   c.none, c.fg1, c.bg3, c.none)
+nv.HL("StatusLineTermNC", c.none, c.fg3, c.bg2, c.none)
 
 # Tablines.
-nightvision.HL("TabLine", nv.none, nv.fg0, nv.bg1, nv.none)
-nightvision.HL("TabLineFill", nv.none, nv.fg0, nv.bg2, nv.none)
-nightvision.HL("TabLineSel", nv.none, nv.fg0, nv.bg3, nv.none)
+nv.HL("TabLine",     c.none, c.fg0, c.bg1, c.none)
+nv.HL("TabLineFill", c.none, c.fg0, c.bg2, c.none)
+nv.HL("TabLineSel",  c.none, c.fg0, c.bg3, c.none)
 
 # Misc.
-nightvision.HL("Conceal", nv.none, nv.lime, nv.none, nv.none)
-nightvision.HL("Directory", nv.none, nv.teal, nv.none, nv.none)
-nightvision.HL("NonText", nv.none, nv.fg0, nv.none, nv.none)
-nightvision.HL("Question", nv.none, nv.aqua, nv.none, nv.none)
-nightvision.HL("QuickFixLine", nv.none, nv.bg0, nv.lime, nv.none)
-nightvision.HL("SpecialKey", nv.bold, nv.teal, nv.bg3, nv.none)
-nightvision.HL("Title", nv.none, nv.pear, nv.none, nv.none)
+nv.HL("Conceal",      c.none, c.lime, c.none, c.none)
+nv.HL("Directory",    c.none, c.teal, c.none, c.none)
+nv.HL("NonText",      c.none, c.fg0,  c.none, c.none)
+nv.HL("Question",     c.none, c.aqua, c.none, c.none)
+nv.HL("QuickFixLine", c.none, c.bg0,  c.lime, c.none)
+nv.HL("SpecialKey",   c.bold, c.teal, c.bg3,  c.none)
+nv.HL("Title",        c.none, c.pear, c.none, c.none)
