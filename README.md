@@ -1,6 +1,6 @@
 # Nightvision for Vim
 
-Nightvision uses only green.
+Nightvision uses only green. Not only is green pleasant to look at, but the human eye percieves more shades of green than any other color, making it an obvious choice for use with a text editor or IDE.
 
 ## Features
 
@@ -8,7 +8,7 @@ Nightvision uses only green.
 * Soft, medium, and hard contrast
 * Nine-color, all-green palette
 > * pure, gray, jade, lime, pear, drab, aqua, sage, and teal
-* Change background and foreground colors to any in the palette
+* Background and foreground can be changed to any in the palette
 * Palette is generated, ensuring colors are correct
 * Fully written in vim9script
 
@@ -68,7 +68,7 @@ g:nv_contrast = "soft"
 
 ## Other Features
 
-Enter ```:echo g:nv_colors``` in Vim to view the hex values of the current nightvision configuration.
+Run ```:echo g:nv_colors``` to view the hex values of the current nightvision configuration.
 
 ## Installation
 
