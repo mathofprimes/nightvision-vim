@@ -34,7 +34,7 @@ nv.HL("Number",    c.none, c.jade, c.none, c.none)
 nv.HL("Boolean",   c.none, c.jade, c.none, c.none)
 nv.HL("Float",     c.none, c.jade, c.none, c.none)
 
-nv.HL("Identifier", c.none, c.pure, c.none, c.none)
+nv.HL("Identifier", c.none,   c.pure, c.none, c.none)
 nv.HL("Function",   "italic", c.lime, c.none, c.none)
 
 nv.HL("Statement",   c.none, c.pear, c.none, c.none)
@@ -148,3 +148,23 @@ nv.HL("Question",     c.none, c.aqua, c.none, c.none)
 nv.HL("QuickFixLine", c.none, c.bg0,  c.lime, c.none)
 nv.HL("SpecialKey",   c.bold, c.teal, c.bg3,  c.none)
 nv.HL("Title",        c.none, c.pear, c.none, c.none)
+
+if exists('*term_setansicolors')
+    g:terminal_ansi_colors = repeat([0], 16)
+    g:terminal_ansi_colors[0] = c.gray
+    g:terminal_ansi_colors[1] = c.pure
+    g:terminal_ansi_colors[2] = c.jade
+    g:terminal_ansi_colors[3] = c.lime
+    g:terminal_ansi_colors[4] = c.pear
+    g:terminal_ansi_colors[5] = c.drab
+    g:terminal_ansi_colors[6] = c.teal
+    g:terminal_ansi_colors[7] = c.sage
+    g:terminal_ansi_colors[8] = c.gray
+    g:terminal_ansi_colors[9] = c.pure
+    g:terminal_ansi_colors[10] = c.jade 
+    g:terminal_ansi_colors[11] = c.lime
+    g:terminal_ansi_colors[12] = c.pear
+    g:terminal_ansi_colors[13] = c.drab
+    g:terminal_ansi_colors[14] = c.teal
+    g:terminal_ansi_colors[15] = c.sage
+endif
