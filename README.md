@@ -10,7 +10,7 @@ Nightvision uses only green. Not only is green pleasant to look at, but the huma
 > * pure, gray, jade, lime, pear, drab, aqua, sage, and teal
 * Background and foreground can be changed to any in the palette
 * Palette is generated, ensuring colors are correct
-* Fully written in vim9script
+* Written in vim9script
 
 ## Screenshots
 
