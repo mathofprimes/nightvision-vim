@@ -1,8 +1,9 @@
 " Declare vim9script.
 vim9script 
 
-# Function which returns configurations, or default configurations 
-# if there are none.
+# Function which returns configurations made by the user, or default 
+# configurations if none are made. Options are background color in dark 
+# mode, background color in light mode, and contrast.
 export def Config(): dict<string>
     return {
         nv_dark: get(g:, "nv_dark", "pure"),
@@ -11,12 +12,10 @@ export def Config(): dict<string>
     }
 enddef
 
-# Function which generates the correct palette based off configurations,
-# which are background color in dark mode, background color in light mode, 
-# and contrast.
+# Function which generates the correct palette based off configurations.
 export def Generator(dark: string, light: string, contrast: string): dict<string> 
 
-    # The ratios of RGB in each color. 
+    # The ratios of red, green, blue in each color. 
     var rgb: dict<list<number>> = {
         pure: [04, 17, 04, -1],
         gray: [16, 17, 16, -4],
@@ -29,19 +28,18 @@ export def Generator(dark: string, light: string, contrast: string): dict<string
         teal: [04, 17, 16,  1]
     }
 
-    # teal, pear, lime, and sage are prominant highlighting colors
+    # "dm" is dark mode, "lm" is light mode. Each column contains multipliers 
+    # by which the color ratios are multiplied to get the desired shade of that 
+    # color. Column 1 is for background colors, column 2 is for syntax, and column 
+    # 3 is used to calculate three additional slightly brighter or darker colors
+    # for background elements.
 
-    # Dark mode. First column are the numbers by which the RGB in rgb are
-    # multiplied to get the desired color, the second column is the same but
-    # for syntax, and the third is used to make three additional slightly
-    # brighter colors which are the same as the background.
     var dm: dict<list<number>> = {
         soft:   [3,  8, 4],
         medium: [2,  9, 2],
         hard:   [1, 10, 1]
     }
     
-    # Light mode.
     var lm: dict<list<number>> = {
         soft:   [12, 7, -4],
         medium: [13, 6, -2],
@@ -60,9 +58,9 @@ export def Generator(dark: string, light: string, contrast: string): dict<string
     # Initialize variables.
     var bg: list<number> # Color of background.
     var fg: list<number> # Color of foreground.
-    var bg_con: list<number> 
-    var fg_con: list<number> 
-    var sn_con: list<number>
+    var bg_con: list<number> # Background multiple 
+    var fg_con: list<number> # Foreground multiple
+    var sn_con: list<number> # Syntax multiple
 
     if &background ==# "dark"
         bg = rgb[dark ]
