@@ -25,7 +25,7 @@ g:colors_name = "nightvision"
 
 # Syntax groups. See :h group-name.
 
-nv.HL("Comment", "italic", c.gray, c.none, c.none)
+nv.HL("Comment", c.itlc, c.gray, c.none, c.none)
 
 nv.HL("Constant",  c.none, c.jade, c.none, c.none)
 nv.HL("String",    c.none, c.jade, c.none, c.none)
@@ -35,7 +35,7 @@ nv.HL("Boolean",   c.none, c.jade, c.none, c.none)
 nv.HL("Float",     c.none, c.jade, c.none, c.none)
 
 nv.HL("Identifier", c.none,   c.pure, c.none, c.none)
-nv.HL("Function",   "italic", c.lime, c.none, c.none)
+nv.HL("Function",   c.itlc,   c.lime, c.none, c.none)
 
 nv.HL("Statement",   c.none, c.pear, c.none, c.none)
 nv.HL("Conditional", c.none, c.pear, c.none, c.none)
@@ -77,14 +77,14 @@ nv.HL("Visual",    c.none, c.none, c.bg2, c.none)
 nv.HL("VisualNos", c.none, c.none, c.bg2, c.none)
 
 # Cursors.
-nv.HL("Cursor",         "reverse", c.none, c.none, c.none)
-nv.HL("lCursor",        "reverse", c.none, c.none, c.none)
-nv.HL("CursorIM",       "reverse", c.none, c.none, c.none)
-nv.HL("CursorColumn",   c.none,   c.none, c.bg1,  c.none)
-nv.HL("CursorLine",     c.none,   c.none, c.bg1,  c.none)
-nv.HL("CursorLineFold", c.none,   c.fg0,  c.bg0,  c.none)
-nv.HL("CursorLineNr",   c.none,   c.lime, c.bg1,  c.none)
-nv.HL("CursorLineSign", c.none,   c.fg0,  c.bg0,  c.none)
+nv.HL("Cursor",         c.rvrs, c.none, c.none, c.none)
+nv.HL("lCursor",        c.rvrs, c.none, c.none, c.none)
+nv.HL("CursorIM",       c.rvrs, c.none, c.none, c.none)
+nv.HL("CursorColumn",   c.none, c.none, c.bg1,  c.none)
+nv.HL("CursorLine",     c.none, c.none, c.bg1,  c.none)
+nv.HL("CursorLineFold", c.none, c.fg0,  c.bg0,  c.none)
+nv.HL("CursorLineNr",   c.none, c.lime, c.bg1,  c.none)
+nv.HL("CursorLineSign", c.none, c.fg0,  c.bg0,  c.none)
 
 # Columns, lines.
 nv.HL("ColorColumn", c.none, c.none, c.bg1,  c.none)
