@@ -1,7 +1,9 @@
+" Declare vim9script
 vim9script
 
 # Import autoload
 import autoload "nightvision.vim" as nv
+import autoload "nightlight.vim" as nl
 
 hi clear
 
@@ -14,11 +16,20 @@ if has("termguicolors")
 endif
 
 var config = nv.Config()
-var c = nv.Generator(
-    config.nv_dark,
-    config.nv_light,
-    config.nv_contrast
-)
+
+var c: dict<any> = {}
+
+if config.nv_nightlight == "off"
+    c = nv.Generator(
+        config.nv_dark,
+        config.nv_light,
+        config.nv_contrast)
+elseif config.nv_nightlight == "on" 
+    c = nv.Generator(
+        nl.Nightlight()[0],
+        nl.Nightlight()[1],
+        config.nv_contrast)
+endif
 
 g:nv_colors = c
 g:colors_name = "nightvision"
