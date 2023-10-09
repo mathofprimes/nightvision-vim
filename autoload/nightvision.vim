@@ -8,7 +8,8 @@ export def Config(): dict<string>
     return {
         nv_dark: get(g:, "nv_dark", "pure"),
         nv_light: get(g:, "nv_light", "pure"),
-        nv_contrast: get(g:, "nv_contrast", "medium")
+        nv_contrast: get(g:, "nv_contrast", "medium"),
+	    nv_nightlight: get(g:, "nv_nightlight", "off")
     }
 enddef
 
