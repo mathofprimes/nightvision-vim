@@ -4,6 +4,7 @@ vim9script
 # Import autoload
 import autoload "nightvision.vim" as nv
 import autoload "nightlight.vim" as nl
+import autoload "config.vim" as nc
 
 hi clear
 
@@ -15,7 +16,7 @@ if has("termguicolors")
     set termguicolors
 endif
 
-var config = nv.Config()
+var config = nc.Config()
 
 var c: dict<any> = {}
 
