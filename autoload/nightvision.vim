@@ -1,18 +1,6 @@
 " Declare vim9script.
 vim9script 
 
-# Function which returns configurations made by the user, or default 
-# configurations if none are made. Options are background color in dark 
-# mode, background color in light mode, and contrast.
-export def Config(): dict<string>
-    return {
-        nv_dark: get(g:, "nv_dark", "pure"),
-        nv_light: get(g:, "nv_light", "pure"),
-        nv_contrast: get(g:, "nv_contrast", "medium"),
-	    nv_nightlight: get(g:, "nv_nightlight", "off")
-    }
-enddef
-
 # Function which generates the correct palette based off configurations.
 export def Generator(dark: string, light: string, contrast: string): dict<string> 
 
