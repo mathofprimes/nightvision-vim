@@ -1,9 +1,8 @@
 " Declare vim9script
 vim9script
 
-# Function which returns configurations made by the user, or default 
-# configurations if none are made. 
-
+# Function which returns available configurations, 
+# made by the user, or default configurations if none are made. 
 export def Config(): dict<string>
     return {
         # Background color in dark mode.
@@ -15,11 +14,8 @@ export def Config(): dict<string>
         # Contrast level.
         nv_contrast: get(g:, "nv_contrast", "medium"),
 	    
-        # Night light function.
+        # Night light function. Changes background color
+        # depending on time of day.
         nv_nightlight: get(g:, "nv_nightlight", "off")
     }
-enddef
-
-export def Configure(): dict<string>
-    return {}
 enddef
