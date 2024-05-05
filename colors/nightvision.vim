@@ -2,7 +2,7 @@
 vim9script
 
 # Import autoload
-import autoload "nightvision.vim" as nv
+import autoload "generator.vim" as gr
 import autoload "highlight.vim" as hl
 import autoload "nightlight.vim" as nl
 import autoload "config.vim" as nc
@@ -22,13 +22,13 @@ var config = nc.Config()
 var c: dict<any> = {}
 
 if config.nv_nightlight == "off"
-    c = nv.Generator(
+    c = gr.Generator(
         config.nv_dark,
         config.nv_light,
         config.nv_contrast
     )
 elseif config.nv_nightlight == "on" 
-    c = nv.Generator(
+    c = gr.Generator(
         nl.Nightlight()[0],
         nl.Nightlight()[1],
         config.nv_contrast
