@@ -1,11 +1,14 @@
 " Declare vim9script
 vim9script
 
+import autoload "config.vim" as nc
+
 # List of colors
 export def Nightlight(): list<string>
+
     # Get current hour
     var hour = str2nr(strftime("%H"))
-    
+
     # List of colors with from colors with the most
     # blue to most red.
     var time_colors: list<list<string>> = [
@@ -34,6 +37,17 @@ export def Nightlight(): list<string>
         ["pear", "pear"], #23
         ["pear", "pear"]  #24
     ]
-    
-    return time_colors[hour]
+
+    var colors: list<string> = []
+
+    if &background ==# "dark"
+        colors = time_colors[hour - nc.Config().nv_start_hour]
+    else
+        colors = [
+            time_colors[hour - nc.Config().nv_start_hour][1],
+            time_colors[hour - nc.Config().nv_start_hour][0]
+	]
+    endif
+	
+    return colors
 enddef
