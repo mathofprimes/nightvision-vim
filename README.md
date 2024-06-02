@@ -1,6 +1,6 @@
 # Nightvision for Vim
 
-Nightvision uses only green. Not only is green pleasant to look at, but the human eye percieves more shades of green than any other color, making it an obvious choice for use with a text editor or IDE.
+Nightvision uses only green. Not only is green pleasant to look at, but the human eye percieves more shades of green than any other color, making it an obvious choice for text editors and IDEs.
 
 ## Features
 
@@ -102,6 +102,6 @@ Plugin 'mathofprimes/nightvision-vim'
 
 to you're .vimrc file and run ```:PluginInstall```.
 
-## Other Text Editors
+## Other Text Editors and IDEs
 
 * [Neovim](https://github.com/mathofprimes/nightvision-nvim)
