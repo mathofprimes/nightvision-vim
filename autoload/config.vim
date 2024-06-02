@@ -3,7 +3,7 @@ vim9script
 
 # Function which returns available configurations, 
 # made by the user, or default configurations if none are made. 
-export def Config(): dict<string>
+export def Config(): dict<any>
     return {
         # Background color in dark mode.
         nv_dark: get(g:, "nv_dark", "pure"),
@@ -17,5 +17,7 @@ export def Config(): dict<string>
         # Night light function. Changes background color
         # depending on time of day.
         nv_nightlight: get(g:, "nv_nightlight", "off")
+
+	nv_start_hour: get(g:, "nv_start_hour", 0)
     }
 enddef
