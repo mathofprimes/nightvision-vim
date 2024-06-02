@@ -17,21 +17,19 @@ if has("termguicolors")
     set termguicolors
 endif
 
-var config = nc.Config()
-
 var c: dict<any> = {}
 
-if config.nv_nightlight == "off"
+if nc.Config().nv_nightlight == "off"
     c = gr.Generator(
-        config.nv_dark,
-        config.nv_light,
-        config.nv_contrast
+        nc.Config().nv_dark,
+        nc.Config().nv_light,
+        nc.Config().nv_contrast
     )
-elseif config.nv_nightlight == "on" 
+elseif nc.Config().nv_nightlight == "on" 
     c = gr.Generator(
         nl.Nightlight()[0],
         nl.Nightlight()[1],
-        config.nv_contrast
+        nc.Config().nv_contrast
     )
 endif
 
