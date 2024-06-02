@@ -16,7 +16,7 @@ export def Config(): dict<any>
 	    
         # Night light function. Changes background color
         # depending on time of day.
-        nv_nightlight: get(g:, "nv_nightlight", "off")
+        nv_nightlight: get(g:, "nv_nightlight", "off"),
 
 	nv_start_hour: get(g:, "nv_start_hour", 0)
     }
