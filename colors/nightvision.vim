@@ -27,8 +27,8 @@ if nc.Config().nv_nightlight == "off"
     )
 elseif nc.Config().nv_nightlight == "on" 
     c = gr.Generator(
-        nl.Nightlight()[0],
-        nl.Nightlight()[1],
+        nl.Nightlight(nc.Config().nv_start_hour)[0],
+        nl.Nightlight(nc.Config().nv_start_hour)[1],
         nc.Config().nv_contrast
     )
 endif
