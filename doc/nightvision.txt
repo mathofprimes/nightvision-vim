@@ -1,46 +1,93 @@
-*nightvision* Nightvision: An easily configurable colorscheme for Vim using just 
-green.
-
 ===========================================================================
-Introduction                                       *nightvision-introduction*
+Introduction                                     *nightvision-introduction*
 ===========================================================================
 
-nightvision consists entirely of shades of green — that is, green is always the 
-highest value in the RGB of any color. There are 9 different colors for syntax, 
-and 4 light colors and 4 dark colors for UI elements and text. Each shade has 
-one of the assigned names — pure, gray, jade, lime, pear, drab, aqua, sage, and 
-teal — which can be used to change the appearance of the colorscheme.  
+Nightvision consists entirely of shades of green — that is, green is always
+the highest value in the RGB of any color. There are 9 different colors for
+syntax, and 4 light colors and 4 dark colors for UI elements and text. Each
+shade has one of the assigned names — pure, gray, jade, lime, pear, drab,
+aqua, sage, and teal — which can be used to change the appearance of the
+colorscheme.  
 
 ===========================================================================
-Setting nightvisions                                  *nightvision-backgrounds*
+Setting Background Color                          *nightvision-backgrounds*
 ===========================================================================
-Each assigned color name can be used to set the background for nightvision
-in either light or dark mode. For example, to have a jade background in
-dark mode and a drab background in light mode, set the following variables
-in your .vimrc file:
 
-let g:nv_dark = 'jade'
+Each assigned color name can be used to set the background in either light
+or dark mode. For example, to have a jade background in dark mode and a
+drab background in light mode, add the following in your .vimrc
+
+' Legacy vimscript
+let g:nv_dark = 'jade' 
 let g:nv_light = 'drab'
 
-This won't just change the backgrounds for each mode, it will also change 
-dark mode to use drab for text and UI elements, as well as change light mode 
-to use jade for text and UI elements. By default, each background is pure.
+or
+
+# vim9script
+g:nv_dark = 'jade' 
+g:nv_light = 'drab'
+
+This also changes dark mode to use drab for text and UI elements, and light
+mode to use jade for text and UI elements. By default, 'pure' is the
+background for dark and light mode.
 
 ===========================================================================
-Setting Contrast                                       *nightvision-contrast*
+Setting Contrast                                     *nightvision-contrast*
 ===========================================================================
 
-There are soft, medium, and hard settings to control contrast. To set any
-of these, add
+Options for contrast are 'soft', 'medium', and 'hard', which can be set by,
+for example,
 
+' Legacy vimscript
 let g:nv_contrast = 'soft'
-let g:nv_contrast = 'medium'
-let g:nv_contrast = 'hard'
 
-Medium offers an even contrast that should be pleasant to most users, whereas 
-soft darkens text and lightens background (in dark mode), or darkens background 
-and lightens text (in light mode), to create less contrast, and hard does the 
-opposite to achieve greater contrast. Contrast between between highlight groups
-and UI elements (comments, for example, are darker than variable names), is 
-decreased if soft contrast is set, and increased if hard contrast is set. Medium 
-is the default contrast.
+or
+
+# vim9script
+g:nv_contrast = 'soft'
+
+The default is 'medium', which should be pleasant for most people. In
+comparison, 'soft' slightly darkens text and lightens background in dark
+mode, or slightly lightens text and darkens background in light mode, to
+decrease contrast, and 'hard' slightly brightens text and darkens
+background in dark mode, or slightly darkens text and brightens background
+in light mode, to increase contrast.  Likewise, contrast between different
+text (e.g. comments, variable names) and UI elements is decreased if 'soft'
+is used, and increased if 'hard' is used.
+
+===========================================================================
+Setting Nightlight                                 *nightvision-nightlight*
+===========================================================================
+
+Instead of setting the background color, another option is the nightlight
+feature, which dynamically shifts the background color throughout the day
+from ones with the most blue in the morning to ones with the least in the
+evening, acting effectively like the 'night light' setting found on most
+operating systems or computer monitors nowadays. This feature can be
+enabled with
+
+' Legacy vimscript
+let g:nv_nightlight = 'on'
+
+or
+
+# vim9script
+g:nv_nightlight = 'on'
+
+The time at which the background start from the most blue colors can be
+specified with an integer between 1 and 24, for example,
+
+' Legacy vimscript
+let g:nv_start_hour = 6
+
+or
+
+# vim9script
+g:nv_start_hour = 6
+
+===========================================================================
+Nightvision Colors                                     *nightvision-colors*
+===========================================================================
+
+Running :echo g:nv_colors will return the hex values of the colors used in
+the current nightvision configuration.
