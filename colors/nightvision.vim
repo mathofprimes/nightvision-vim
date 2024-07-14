@@ -5,7 +5,7 @@ vim9script
 import autoload "generator.vim" as gr
 import autoload "highlight.vim" as hl
 import autoload "nightlight.vim" as nl
-import autoload "config.vim" as nc
+import autoload "configuration.vim" as nc
 
 hi clear
 
@@ -17,7 +17,7 @@ if has("termguicolors")
     set termguicolors
 endif
 
-var c: dict<any> = {}
+var c: dict<string> = {}
 
 if nc.Config().nv_nightlight == "off"
     c = gr.Generator(
